@@ -14,3 +14,37 @@ const options = {weekday: "long", month: "short", day:"numeric"};
 const today = new Date();
 
 dateElement.innerHTML = today.toLocaleDateString("en-US",options);
+
+//TO DO FUNCTION
+function addToDo(toDo, id, done, thrash){
+
+    if(thrash){return;}
+
+    const DONE = done ? CHECK : UNCHECK;
+    const LINE = done ? LINE_THROUGH : "" ;
+
+    const item = `<li class="item">
+                 <i class="fa ${DONE} co" job="complete" id="${id}"></i>
+                 <p class="text ${LINE}">${toDo}</p>
+                 <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
+                 </li>
+                 `;
+
+    const position = "beforehead";
+    list.insertAdjacentHTML(position,item);
+}
+
+//ADD EVENT WTH ENTER
+document.addEventListener("keyup",function(even){
+    var keycode = evt.keyCode;
+    if(e.keyCode == 13){
+    
+        const toDo = input.value;
+    
+        if(toDo){
+            addToDo(toDo);
+        }}
+        
+});
+
+ 
