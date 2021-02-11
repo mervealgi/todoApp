@@ -16,35 +16,32 @@ const today = new Date();
 dateElement.innerHTML = today.toLocaleDateString("en-US",options);
 
 //TO DO FUNCTION
-function addToDo(toDo, id, done, thrash){
+function addToDo(toDo, id, done,thrash){
 
     if(thrash){return;}
-
     const DONE = done ? CHECK : UNCHECK;
     const LINE = done ? LINE_THROUGH : "" ;
 
     const item = `<li class="item">
-                 <i class="fa ${DONE} co" job="complete" id="${id}"></i>
-                 <p class="text ${LINE}">${toDo}</p>
-                 <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
-                 </li>
+                        <i class="fa fa-circle-thin co" job="complete" id="0"></i>
+                        <p class="text">${toDo}</p>
+                        <i class="fa fa-trash-o de" job="delete" id="0"></i> 
+                        </li>
                  `;
 
-    const position = "beforehead";
-    list.insertAdjacentHTML(position,item);
+    const position = "beforeend";
+    list.insertAdjacentHTML(position, item);
 }
 
-//ADD EVENT WTH ENTER
+//WHEN USER ENTER THE KEY TO ADD
 document.addEventListener("keyup",function(even){
-    var keycode = evt.keyCode;
-    if(e.keyCode == 13){
-    
+    if(event.code == "Enter"){
         const toDo = input.value;
-    
+
         if(toDo){
             addToDo(toDo);
-        }}
-        
-});
+        }
+        input.value = "";
 
- 
+    }
+}); 
